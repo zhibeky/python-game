@@ -1,0 +1,52 @@
+# Tech With Tim
+print("Welcome to my first game!")
+name = input("What is your name? ")
+age = int(input("How old are you? "))
+health = 10
+
+if age >= 16:
+    print("Hello", name, "you are old enough to play ")
+else:
+    print("Hello", name, "you are not old enough ")
+    quit()
+
+ready = input("Do you want to play (yes/no)? ").lower()
+if ready != 'yes':
+    print("Cya...")
+    quit()
+
+print("")
+print("Rules of this game: ")
+print("You have", health, "points of health. Let's start :) ")
+
+first_way = input("You have two options: go left or right(left/right): ").lower()
+if first_way == 'left':
+    second_way = input("You've reached the lake: do you swim across or go around the lake? (across/around) ").lower()
+    if second_way == 'around':
+        print("You went around and reached the other side")
+
+    elif second_way == 'across':
+        print("You managed to get across, but were bit by a fish and lose 5 health")
+        health -= 5
+
+    ans = input("You noticed a house and a river. Which do you go to (river/house)? ").lower()
+    if ans == 'house':
+        print("You go to the house and greted by the owner... He doesn't like you and you lose 5 points")
+        health -= 5
+        if health <= 0:
+            print("You now have 0 health and you lost the game ...")
+        else:
+            print("You have survived")
+    else:
+        print("You fell in the river and lost...")
+        quit()
+
+
+else:
+    print('You fell down and lost')
+    quit()
+
+if health <= 0:
+    print("You've lost")
+else:
+    print("Congrats! You win, you have", health, "health remained")
